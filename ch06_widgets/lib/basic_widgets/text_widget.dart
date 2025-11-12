@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class TextWidgetExample extends StatelessWidget {
@@ -6,20 +5,36 @@ class TextWidgetExample extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text(
-            "Hello Flutter, 쿠키런",
-            style: TextStyle(
-              fontSize: 30,
-              fontWeight: FontWeight.w700,
-              fontFamily: 'CookieRun',
-              color: Colors.blue,
-            ),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: const [
+        Text(
+          '쿠키런 폰트 Regular 🍪',
+          style: TextStyle(
+            fontFamily: 'CookieRun',
+            fontSize: 24,
+            fontWeight: FontWeight.w400,
           ),
         ),
-      ),
+        SizedBox(height: 12),
+        Text(
+          '쿠키런 폰트 Bold 🍩',
+          style: TextStyle(
+            fontFamily: 'CookieRun',
+            fontSize: 26,
+            fontWeight: FontWeight.w700,
+          ),
+        ),
+        SizedBox(height: 12),
+        Text(
+          '쿠키런 폰트 Black 🍫',
+          style: TextStyle(
+            fontFamily: 'CookieRun',
+            fontSize: 28,
+            fontWeight: FontWeight.w900,
+          ),
+        ),
+      ],
     );
   }
 }
