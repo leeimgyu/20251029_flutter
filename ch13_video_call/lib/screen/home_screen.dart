@@ -1,6 +1,9 @@
 import 'package:ch13_video_call/screen/cam_screen.dart';
 import 'package:flutter/material.dart';
 
+// Web Real-Time Communication(RTC)
+// 웹브라우저 기반으로 통신하는 WebRTC라는 API를 사용하여 통신
+// 중계용 서버(Signalling Server)를 구현하는 대신 아고라서버로 대체
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 

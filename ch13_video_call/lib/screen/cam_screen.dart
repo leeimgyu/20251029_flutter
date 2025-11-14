@@ -3,6 +3,7 @@ import 'package:ch13_video_call/const/agora.dart';
 import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
 
+// Agora RTC Engine을 사용해서 실시간 영상통화 화면을 구현
 class CamScreen extends StatefulWidget {
   const CamScreen({Key? key}) : super(key: key);
 
@@ -67,16 +68,16 @@ class _CamScreenState extends State<CamScreen> {
           },
           onUserOffline:
               (
-                RtcConnection connection,
-                int remoteUid,
-                UserOfflineReasonType reason,
+              RtcConnection connection,
+              int remoteUid,
+              UserOfflineReasonType reason,
               ) {
-                // 다른 사용자가 채널을 나갔을 때 실행
-                print('상대가 채널에서 나갔습니다. uid : $uid');
-                setState(() {
-                  otherUid = null;
-                });
-              },
+            // 다른 사용자가 채널을 나갔을 때 실행
+            print('상대가 채널에서 나갔습니다. uid : $uid');
+            setState(() {
+              otherUid = null;
+            });
+          },
         ),
       );
 
