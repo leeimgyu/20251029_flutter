@@ -21,6 +21,9 @@ class _ScheduleBottomSheetState extends State<ScheduleBottomSheet> {
   int? endTime; // 종료 시간 저장 변수
   String? content; // 일정 내용 저장 변수
 
+  // 스포츠 선택 상태 (한 개만 선택 가능)
+  String? selectedSport;
+
   @override
   Widget build(BuildContext context) {
     final bottomInset = MediaQuery.of(context).viewInsets.bottom;
@@ -75,6 +78,46 @@ class _ScheduleBottomSheetState extends State<ScheduleBottomSheet> {
                   ],
                 ),
                 SizedBox(height: 8.0),
+                // 스포츠 선택 라디오 버튼 (한 개만 선택)
+                Container(
+                  padding: EdgeInsets.symmetric(vertical: 8.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        '스포츠 종류',
+                        style: TextStyle(
+                          fontSize: 14.0,
+                          fontWeight: FontWeight.w600,
+                          color: Colors.grey[700],
+                        ),
+                      ),
+                      SizedBox(height: 8.0),
+                      Row(
+                        children: ['축구', '농구', '배구'].map((sport) {
+                          return Expanded(
+                            child: RadioListTile<String>(
+                              title: Text(
+                                sport,
+                                style: TextStyle(fontSize: 14.0),
+                              ),
+                              value: sport,
+                              groupValue: selectedSport,
+                              onChanged: (String? value) {
+                                setState(() {
+                                  selectedSport = value;
+                                });
+                              },
+                              contentPadding: EdgeInsets.zero,
+                              dense: true,
+                            ),
+                          );
+                        }).toList(),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(height: 8.0),
                 Expanded(
                   child: CustomTextField(
                     // 내용 입력 필드
@@ -112,12 +155,16 @@ class _ScheduleBottomSheetState extends State<ScheduleBottomSheet> {
     if (formKey.currentState!.validate()) {
       formKey.currentState!.save(); //  폼 저장하기
 
+      // 선택된 스포츠를 리스트로 변환 (한 개만 선택됨)
+      final List<String> sports = selectedSport != null ? [selectedSport!] : [];
+
       final schedule = ScheduleModel(
         id: Uuid().v4(),
         content: content!,
         date: widget.selectedDate,
         startTime: startTime!,
         endTime: endTime!,
+        sports: sports, // 선택된 스포츠 추가
       );
 
       //  스케쥴 모델 파이어스토어에 삽입하기

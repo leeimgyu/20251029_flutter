@@ -134,6 +134,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             startTime: schedule.startTime,
                             endTime: schedule.endTime,
                             content: schedule.content,
+                            sports: schedule.sports, // 스포츠 정보 전달
                           ),
                         ),
                       );

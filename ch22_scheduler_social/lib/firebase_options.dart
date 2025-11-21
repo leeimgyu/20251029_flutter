@@ -27,17 +27,17 @@ class DefaultFirebaseOptions {
       case TargetPlatform.macOS:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for macos - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
+              'you can reconfigure this by running the FlutterFire CLI again.',
         );
       case TargetPlatform.windows:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for windows - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
+              'you can reconfigure this by running the FlutterFire CLI again.',
         );
       case TargetPlatform.linux:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for linux - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
+              'you can reconfigure this by running the FlutterFire CLI again.',
         );
       default:
         throw UnsupportedError(
@@ -60,6 +60,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '488945839000',
     projectId: 'calendar-20251120-10269',
     storageBucket: 'calendar-20251120-10269.firebasestorage.app',
+    androidClientId: '488945839000-t0r8om3b7o28qo47trs3pfo51uk0dhtc.apps.googleusercontent.com',
     iosClientId: '488945839000-jo9bd9sj70vpldf4600vecs1d1v8k5ej.apps.googleusercontent.com',
     iosBundleId: 'com.example.ch22SchedulerSocial',
   );

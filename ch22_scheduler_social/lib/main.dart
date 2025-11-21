@@ -1,3 +1,4 @@
+import 'package:ch22_scheduler_social/screen/auth_screen.dart';
 import 'package:ch22_scheduler_social/screen/home_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -13,5 +14,5 @@ void main() async {
   // firebase에는 두가지 개념(collection:table, document:row)이 있다.
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
 
-  runApp(MaterialApp(debugShowCheckedModeBanner: false, home: HomeScreen()));
+  runApp(MaterialApp(debugShowCheckedModeBanner: false, home: AuthScreen()));
 }

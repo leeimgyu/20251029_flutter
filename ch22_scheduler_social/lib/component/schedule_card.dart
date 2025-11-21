@@ -5,11 +5,13 @@ class ScheduleCard extends StatelessWidget {
   final int startTime;
   final int endTime;
   final String content;
+  final List<String> sports; // 스포츠 종류 추가
 
   const ScheduleCard({
     required this.startTime,
     required this.endTime,
     required this.content,
+    this.sports = const [], // 기본값은 빈 리스트
     super.key,
   });
 
@@ -36,6 +38,7 @@ class ScheduleCard extends StatelessWidget {
               SizedBox(width: 16.0),
               _Content(   // 일정 내용을 보여줄 위젯
                 content: content,
+                sports: sports, // 스포츠 정보 전달
               ),
               SizedBox(width: 16.0),
             ],
@@ -84,16 +87,58 @@ class _Time extends StatelessWidget {
 
 class _Content extends StatelessWidget {
   final String content;  // 내용
+  final List<String> sports; // 스포츠 종류
 
   const _Content({
     required this.content,
+    this.sports = const [],
   });
 
   @override
   Widget build(BuildContext context) {
     return Expanded(  //  최대한 넓게 늘리기
-      child: Text(
-        content,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            content,
+            style: TextStyle(
+              fontSize: 16.0,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+          if (sports.isNotEmpty) ...[
+            SizedBox(height: 8.0),
+            Wrap(
+              spacing: 6.0,
+              runSpacing: 4.0,
+              children: sports.map((sport) {
+                return Container(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 8.0,
+                    vertical: 4.0,
+                  ),
+                  decoration: BoxDecoration(
+                    color: PRIMARY_COLOR.withOpacity(0.1),
+                    borderRadius: BorderRadius.circular(12.0),
+                    border: Border.all(
+                      color: PRIMARY_COLOR.withOpacity(0.3),
+                      width: 1.0,
+                    ),
+                  ),
+                  child: Text(
+                    sport,
+                    style: TextStyle(
+                      fontSize: 12.0,
+                      color: PRIMARY_COLOR,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                );
+              }).toList(),
+            ),
+          ],
+        ],
       ),
     );
   }

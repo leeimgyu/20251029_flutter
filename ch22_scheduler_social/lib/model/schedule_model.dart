@@ -4,6 +4,7 @@ class ScheduleModel {
   final DateTime date;
   final int startTime;
   final int endTime;
+  final List<String> sports; // 스포츠 종류 (축구, 농구, 배구)
 
   ScheduleModel({
     required this.id,
@@ -11,6 +12,7 @@ class ScheduleModel {
     required this.date,
     required this.startTime,
     required this.endTime,
+    this.sports = const [], // 기본값은 빈 리스트
   });
 
   ScheduleModel.fromJson({ // JSON으로부터 모델을 만들어내는 생성자
@@ -19,7 +21,10 @@ class ScheduleModel {
         content = json['content'],
         date = DateTime.parse(json['date']),
         startTime = json['startTime'],
-        endTime = json['endTime'];
+        endTime = json['endTime'],
+        sports = json['sports'] != null
+            ? List<String>.from(json['sports'])
+            : [];
 
   Map<String, dynamic> toJson() {  //  모델을 다시 JSON으로 변환하는 함수
     return {
@@ -29,6 +34,7 @@ class ScheduleModel {
       '${date.year}${date.month.toString().padLeft(2, '0')}${date.day.toString().padLeft(2, '0')}',
       'startTime': startTime,
       'endTime': endTime,
+      'sports': sports,
     };
   }
 
@@ -38,6 +44,7 @@ class ScheduleModel {
     DateTime? date,
     int? startTime,
     int? endTime,
+    List<String>? sports,
   }) {
     return ScheduleModel(
       id: id ?? this.id,
@@ -45,6 +52,7 @@ class ScheduleModel {
       date: date ?? this.date,
       startTime: startTime ?? this.startTime,
       endTime: endTime ?? this.endTime,
+      sports: sports ?? this.sports,
     );
   }
 }

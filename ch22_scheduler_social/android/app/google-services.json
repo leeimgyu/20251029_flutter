@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "488945839000-t0r8om3b7o28qo47trs3pfo51uk0dhtc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.ch22_scheduler_social",
+            "certificate_hash": "505ad6befd3dd01565a98f58f43b94cc0a3df850"
+          }
+        },
+        {
           "client_id": "488945839000-62t40la2nm16uh9hpfru7hbi2r24rhjs.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,6 +37,13 @@
             {
               "client_id": "488945839000-62t40la2nm16uh9hpfru7hbi2r24rhjs.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "488945839000-jo9bd9sj70vpldf4600vecs1d1v8k5ej.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.ch22SchedulerSocial"
+              }
             }
           ]
         }
